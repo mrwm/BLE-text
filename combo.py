@@ -43,12 +43,42 @@ def main():
       print "received [%s]" % data
 
       ### For the Screen
-      drawOut = data
-      dSize = len(drawOut)
+      dOut0, dOut1, dOut2, dOut3, dOut4, dOut5, dOut6 = data, "", "", "", "", "", ""
+      dSize0 = len(dOut0)
+      if (dSize0 > 20):
+        dOut1 = dOut0[20:]
+        dOut0 = dOut0[0:20]
+      dSize1 = len(dOut1)
+      if (dSize1 > 20):
+        dOut2 = dOut1[20:]
+        dOut1 = dOut1[0:20]
+      dSize2 = len(dOut2)
+      if (dSize2 > 20):
+        dOut3 = dOut2[20:]
+        dOut2 = dOut2[0:20]
+      dSize3 = len(dOut3)
+      if (dSize3 > 20):
+        dOut4 = dOut3[20:]
+        dOut3 = dOut3[0:20]
+      dSize4 = len(dOut4)
+      if (dSize4 > 20):
+        dOut5 = dOut4[20:]
+        dOut4 = dOut4[0:20]
+      dSize5 = len(dOut5)
+      if (dSize5 > 20):
+        dOut6 = dOut5[20:]
+        dOut5 = dOut5[0:20]
+
       with canvas(device) as draw:
         #draw.rectangle(device.bounding_box, outline="white")
-        for z in range(0,dSize):
-          draw.text((6*z, 3), drawOut[z], fill="white")
+        #for z in range(0,dSize):
+        draw.text((3, 3), dOut0, fill="white")
+        draw.text((3, 12), dOut1, fill="white")
+        draw.text((3, 21), dOut2, fill="white")
+        draw.text((3, 30), dOut3, fill="white")
+        draw.text((3, 39), dOut4, fill="white")
+        draw.text((3, 48), dOut5, fill="white")
+        draw.text((3, 57), dOut6, fill="white")
   ###
   except IOError:
     print "all done"
